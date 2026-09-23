@@ -12,6 +12,6 @@ CPU:  AMD Ryzen 7 H 255
 
 ОС:  Windows 11 Pro, 64-bit
 
-Компилятор C++:  
+Компилятор C++:  MSVC (Microsoft Visual C++) 
 
 Python:  3.14.7
