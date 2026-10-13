@@ -1,0 +1,39 @@
+# Исполняемые файлы и объектные файлы C++
+*.exe
+*.obj
+*.o
+*.out
+*.app
+
+# Файлы отладки (создаются MSVC)
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.lib
+
+*.log
+*.tlog
+*.lastbuildstate
+*.cache
+
+
+build/
+Debug/
+Release/
+x64/
+x86/
+
+#results/  на потом
+# Папка с исходными матрицами (загрузила уже)
+data/
+
+.vs/
+*.suo
+*.user
+
+__pycache__/
+*.pyc
+.venv/
+
+.vscode/
