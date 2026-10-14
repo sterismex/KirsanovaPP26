@@ -3,8 +3,18 @@
 
 ***
 # Структура проекта
-
-
+```
+lab2/
+├── data/
+├── results/
+├── run_results/
+├── generator.py
+├── main.cpp
+├── run.py
+├── grafs.py
+├── table.py
+└── README.md
+```
 ***
 # **Характеристики:**
 
