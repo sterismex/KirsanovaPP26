@@ -153,18 +153,49 @@ module load intel/mpi4
 
 # 2. Скомпилировать программу
 mpicxx -O2 main.cpp -o main
+```
 
-# 3. Создать скрипт для очереди job.slurm
-nano job.slurm
-# (вставить туда текст скрипта, как в отчете)
+### Скрипт для системы очередей (job.slurm)
 
-# 4. Отправить задачу в очередь
+Для запуска задачи на суперкомпьютере используется система очередей SLURM. Ниже приведён текст файла `job.slurm`, который перебирает все размеры матриц и все количества процессов:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=mpi_lab
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=00:40:00
+#SBATCH --partition=batch
+#SBATCH --output=slurm-%j.out
+
+module load intel/icc18
+module load intel/mpi4
+
+for N in 200 400 800 1200 1600 2000; do
+    if [ ! -f "data/matrix_a_$N.txt" ]; then
+        echo "Генерация матрицы $N..."
+        python3 generator.py $N
+    fi
+
+    for P in 1 2 4 8; do
+        echo "========================================"
+        echo "Запуск: Размер $N, Процессов $P"
+        echo "========================================"
+        
+        srun -n $P ./main $N
+    done
+done
+
+echo "Все тесты успешно завершены!"
+```
+
+```bash
+# 3. Отправить задачу в очередь
 sbatch job.slurm
 
-# 5. Проверить статус
+# 4. Проверить статус
 squeue -u 2025-01173
 
-# 6. После завершения забрать лог-файл slurm-XXXXX.out
+# 5. После завершения забрать лог-файл slurm-XXXXX.out
 # и запустить локально:
 python table.py
 python grafs.py
