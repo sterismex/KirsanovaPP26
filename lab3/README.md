@@ -9,11 +9,6 @@ lab3/
 ├── .gitignore
 ├── README.md
 │
-├── data/                          # исходные матрицы (txt)
-│   ├── matrix_a_200.txt
-│   ├── matrix_b_200.txt
-│   └── ...
-│
 ├── results/                       # результаты умножения (txt)
 │   ├── result_200.txt
 │   └── ...
@@ -23,7 +18,11 @@ lab3/
 ├── table.py                       # парсинг лога и генерация таблицы
 ├── grafs.py                       # построение графиков
 ├── log.txt                        # лог выполнения задачи на кластере
-└── README.md
+│
+├── graph1_time_vs_procs.png       # график времени от процессов
+├── graph2_speedup.png             # график ускорения
+├── graph3_efficiency.png          # график эффективности
+└── graph4_gflops.png              # график производительности
 ```
 
 ***
